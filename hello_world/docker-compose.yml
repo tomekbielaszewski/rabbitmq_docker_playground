@@ -1,0 +1,12 @@
+version: '3'
+services:
+    rabbitmq:
+        image: rabbitmq:3
+    sender:
+        build: ./sender
+        depends_on:
+            - rabbitmq
+    receiver:
+        build: ./receiver
+        depends_on:
+            - rabbitmq
